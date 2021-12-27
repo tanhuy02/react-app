@@ -8,10 +8,14 @@ pipeline {
             }
         }
         stage('Unit test') {
-            sh 'npm test -- --coverage'
+            steps {
+                sh 'npm test -- --coverage'
+            }
         }
         stage('Deploy') {
-            sh 'npm start'
+            steps {
+                sh 'npm start'
+            }
         }
     }
     post {
