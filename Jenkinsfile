@@ -1,10 +1,17 @@
 pipeline {
     agent any
     stages {
-        stage('Test') {
+        stage('Build') {
             steps {
-                sh 'echo "Fail!"; exit 1'
+                sh 'npm install'
+                sh 'npm run build'
             }
+        }
+        stage('Unit test') {
+            sh 'npm test -- --coverage'
+        }
+        stage('Deploy') {
+            sh 'npm start'
         }
     }
     post {
