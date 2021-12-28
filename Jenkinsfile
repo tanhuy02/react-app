@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     tools {nodejs "default"}
-    
+
     stages {
         stage('Build') {
             steps {
@@ -17,7 +17,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh 'npm start'
+                sh 'npm run serve'
             }
         }
     }
